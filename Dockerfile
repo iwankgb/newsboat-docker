@@ -10,7 +10,8 @@ RUN tar xf r2.11.1.tar.gz
 WORKDIR newsboat-r2.11.1
 RUN make prefix=/opt/newsboat 
 USER root
-RUN make install
+RUN make install prefix=/opt/newsboat 
+
 
 
 FROM fedora:28
