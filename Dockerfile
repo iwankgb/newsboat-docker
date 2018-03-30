@@ -18,7 +18,7 @@ FROM fedora:28
 
 RUN dnf update -y && dnf install -y libcurl gnutls ncurses libgcrypt libxml2 json-c stfl libsq3 gettext
 COPY --from=build_env /opt/newsboat /opt/newsboat
-RUN curl -o /bin/gosu https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64
+RUN curl -L -o /bin/gosu https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64
 RUN chmod +x /bin/gosu
 COPY user.sh /user.sh
 ENTRYPOINT /user.sh
