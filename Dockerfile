@@ -1,16 +1,13 @@
 FROM fedora:28 AS build_env
 
 RUN dnf update -y && dnf install -y @development-tools libcurl-devel gnutls-devel ncurses-devel libgcrypt-devel pkgconf-pkg-config libxml2-devel krb5-devel json-c-devel stfl-devel libsq3-devel gettext asciidoc gcc-c++
-
 RUN adduser -m newsboat
+
 USER newsboat
 WORKDIR /home/newsboat
 RUN curl -L -O https://github.com/newsboat/newsboat/archive/r2.11.1.tar.gz
 RUN tar xf r2.11.1.tar.gz
 WORKDIR newsboat-r2.11.1
-
-USER root
-RUN dnf install -y gcc-c++
 RUN make prefix=/opt/newsboat 
 USER root
 RUN make install
