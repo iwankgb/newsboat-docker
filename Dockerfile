@@ -11,14 +11,14 @@ WORKDIR newsboat-r2.11.1
 
 USER root
 RUN dnf install -y gcc-c++
-RUN prefix=/opt/newsboat make
+RUN make prefix=/opt/newsboat 
 USER root
 RUN make install
 
 
 FROM fedora:28
 
-RUN dnf update -y && dnf install -y libcurl gnutls ncurses libgcrypt libxml2 krb5 json-c stfl libsq3 gettext
+RUN dnf update -y && dnf install -y libcurl gnutls ncurses libgcrypt libxml2 json-c stfl libsq3 gettext
 COPY --from=build_env /opt/newsboat /opt/newsboat
 RUN curl -o /bin/gosu https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64
 RUN chmod +x /bin/gosu
