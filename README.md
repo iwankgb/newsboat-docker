@@ -5,5 +5,5 @@ I use this image to run [Newsboat](https://newsboat.org/). It is built automatic
 
 To run:
 ````bash
-docker run --env=USERNAME=`id -un` --env=USERID=`id -u` --env=GROUPID=`id -g` --network host -ti -v ~/.newsboat:/home/`id -un`/.newsboat quay.io/iwankgb/newsboat-docker
+docker run --env=USERNAME=`id -un` --env=USERID=`id -u` --env=GROUPID=`id -g` -ti -v ~/.newsboat:/home/`id -un`/.newsboat quay.io/iwankgb/newsboat-docker
 ````
