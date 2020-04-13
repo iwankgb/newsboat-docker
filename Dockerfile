@@ -15,7 +15,7 @@ RUN make install prefix=/opt/newsboat
 
 FROM fedora:32
 
-RUN dnf update -y && dnf install -y libcurl openssl ncurses libgcrypt libxml2 json-c stfl libsq3 gettext
+RUN dnf update -y && dnf install -y libcurl openssl ncurses libgcrypt libxml2 json-c stfl libsq3 gettext glibc-langpack-en
 COPY --from=build_env /opt/newsboat /opt/newsboat
 RUN curl -L -o /bin/gosu https://github.com/tianon/gosu/releases/download/1.10/gosu-amd64
 RUN chmod +x /bin/gosu
