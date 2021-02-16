@@ -6,8 +6,8 @@ RUN adduser -m newsboat
 USER newsboat
 WORKDIR /home/newsboat
 RUN curl -L -O https://github.com/newsboat/newsboat/archive/r2.22.1.tar.gz
-RUN tar xf r2.18.tar.gz
-WORKDIR newsboat-r2.18
+RUN tar xf r2.22.1.tar.gz
+WORKDIR newsboat-r2.22.1
 RUN make prefix=/opt/newsboat 
 USER root
 RUN make install prefix=/opt/newsboat 
